@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import { readSession, saveSession } from './api/session'
 import AuthPage from './pages/AuthPage'
+import DashboardPage from './pages/DashboardPage'
 
 function App() {
   const [session, setSession] = useState(readSession)
@@ -15,6 +16,7 @@ function App() {
     return <AuthPage onAuthenticated={updateSession} />
   }
 
+  return <DashboardPage session={session} onSessionChange={updateSession} />
 }
 
 export default App
