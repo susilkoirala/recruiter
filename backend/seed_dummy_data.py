@@ -7,7 +7,7 @@ PASSWORD = "apple@pie"
 
 USERS = [
     {
-        "email": "root@gmail.com",
+        "email": "root@example.com",
         "role": UserRole.ADMIN,
     },
     {
