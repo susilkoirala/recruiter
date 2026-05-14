@@ -40,6 +40,19 @@ docker compose up -d --build
 
 The `--build` flag tells Docker Compose to rebuild the backend and frontend images before starting containers. The frontend Dockerfile installs dependencies and runs the React build, producing the `frontend/dist` files that nginx serves.
 
+Seed the database before using the dashboard:
+
+```bash
+docker compose exec backend python seed_dummy_data.py
+```
+
+This step is required for the default admin account and demo candidates. The seeded admin login is:
+
+```text
+email: root@example.com
+password: apple@pie
+```
+
 Open:
 
 ```text
@@ -61,11 +74,10 @@ cd backend
 python -m pytest tests -q
 ```
 
-Seed demo data:
+Seed demo data again if needed:
 
 ```bash
-cd backend
-python seed_dummy_data.py
+docker compose exec backend python seed_dummy_data.py
 ```
 
 Stop containers:
@@ -84,12 +96,12 @@ curl -X POST http://recruiter.local:8000/api/v1/auth/register \
   -d '{"email":"reviewer@example.com","password":"password123"}'
 ```
 
-Login:
+Login with the seeded admin account:
 
 ```bash
 curl -X POST http://recruiter.local:8000/api/v1/auth/login \
   -H "Content-Type: application/json" \
-  -d '{"email":"reviewer@example.com","password":"password123"}'
+  -d '{"email":"root@example.com","password":"apple@pie"}'
 ```
 
 List candidates with a token:
