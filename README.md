@@ -65,6 +65,26 @@ The FastAPI API is served behind nginx at:
 http://recruiter.local:8000/api/v1
 ```
 
+## Deployed URLs
+
+Frontend:
+
+```text
+https://recruiter.koiralasushil.com.np/
+```
+
+Backend API:
+
+```text
+https://recruite.koiralasushil.com.np/api/v1
+```
+
+Backend Swagger docs:
+
+```text
+https://recruite.koiralasushil.com.np/docs
+```
+
 ## Useful Commands
 
 Run backend tests:
