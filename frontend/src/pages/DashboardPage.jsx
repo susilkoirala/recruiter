@@ -19,7 +19,7 @@ const emptyFilters = {
 }
 
 function getCandidateIdFromPath() {
-  const match = window.location.pathname.match(/^\/candidates\/(\d+)$/)
+  const match = window.location.pathname.match(/^\/candidates\/(\d+)\/?$/)
   return match ? Number(match[1]) : null
 }
 
