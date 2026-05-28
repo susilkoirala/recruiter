@@ -1,0 +1,6 @@
+# docker compose
+docker-compose.yml
+
+# nginx config
+nginx/
+nginx/*
