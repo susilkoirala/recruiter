@@ -39,7 +39,7 @@ jobs:
     needs: test
 
     steps:
-      - name: Connect to Tailscale
+      - name: Setup Tailscale
         uses: tailscale/github-action@v3
         with:
           authkey: ${{ secrets.TS_AUTHKEY }}
