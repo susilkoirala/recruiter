@@ -40,10 +40,13 @@ jobs:
 
     steps:
       - name: Setup Tailscale
-        uses: tailscale/github-action@v3
+        uses: tailscale/github-action@v4
         with:
-          authkey: ${{ secrets.TS_AUTHKEY }}
+          oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
+          oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
+          tags: tag:ci
           hostname: github-deploy-${{ github.run_id }}
+          ping: ${{ secrets.DEPLOY_HOST }}
 
       - name: Deploy over SSH
         uses: appleboy/ssh-action@v1.2.0
